@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="intro">
+            <h2>Choose your Jedi.</h2>
+            <img src="assets/images/obi-wan.jpg" alt="Obi-Wan Kenobi" class="heroes" id="obiwan" data-skill="10" data-stamina="1500" data-vader="false">
+            <p class="info">Obi-Wan Kenobi gains Hope when he levels up, which grants him damage resistance.</p>
+            <img src="assets/images/anakin.jpg" alt="Anakin Skywalker" class="heroes" id="anakin" data-skill="15" data-stamina="1000" data-vader="true">
+            <p class="info">Anakin Skywalker gains Rage as he levels up, which grants him more damage. </p>
+        </div>
+        
+        <div id="arena">
+            <div>
+                <h2>Choose who to fight.</h2>
+            </div>
+            <div id="alive">
+                <img src="assets/images/battle-droid.jpeg" alt="Battle Droid" class="villains" id="bdroid">
+                <img src="assets/images/super-battle-droid.jpeg" alt="Super Battle Droid" class="villains" id="sdroid">
+                <img src="assets/images/droideka.jpg" alt="Destroyer Droid" class="villains" id="ddroid">
+                <img src="assets/images/hailfire-droid.jpg" alt="Hailfire Droid" class="villains" id="hdroid">
+                <img src="assets/images/magnaguard.jpeg" alt="Magna Guard" class="villains" id="mdroid">
+            </div>
+            <div id="defeated"></div>
+        </div>
+        
+
+        <div id="battle">
+            <h2>Press attack to attack.</h2>
+            <button type="button" name="attack">Attack</button>
+        </div>
+
+        <script src="assets/javascript/game.js"></script>
+
+    </body>
+</html>
+
+
+
