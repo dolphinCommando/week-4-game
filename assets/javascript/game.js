@@ -8,21 +8,24 @@ $(document).ready(function() {
     var levelUpIncrement;
     var battleNotOver;
     var enemiesDefeated;
-    var heroCSS = {hover: {}};
-    var villainCSS = {hover: {}};
+    //var heroCSS = {hover: {}};
+    //var villainCSS = {hover: {}};
     //console.log($('.villains'));
     //console.log($('.villains')[2]);
+    var villainObject = [];
 
     $('#intro').on('click', '.heroes', function(event) {
         setVariables();
         jediSkill = +$(this).attr('data-skill');
         jediStamina = +$(this).attr('data-stamina');
         isVader = $(this).attr('data-vader');
-        $('#battle').append($(this).clone());
+        var copy = $(this).clone();
+        $('#battle').append(copy);
         $('#intro').css('visibility', 'hidden');
         $('#arena').css('visibility', 'visible');
         //saveCSS(this, 'good');
-        deactivateLink(this);
+        deactivateLink(copy);
+        $('#imagestore').empty();
         
     });
 
@@ -30,14 +33,16 @@ $(document).ready(function() {
     $('#alive').on('click', '.villains', function(event) {
         sithSkill = +$(this).attr('data-skill');
         sithStamina = +$(this).attr('data-stamina');
-        $('#battle').append($(this));
+        var copy = $(this).clone();
+        $('#battle').append(copy);
+        $('#imagestore').append($(this));
         $('#arena').css('visibility', 'hidden');
         $('#battle').css('visibility', 'visible');
         $('#battle h2').text('Press attack buttom below to simulate an epic Jedi battle.');
         $('#next').css('visibility', 'hidden');
         $('#new').css('visibility', 'hidden');
         //saveCSS(this, 'evil');
-        deactivateLink(this);
+        deactivateLink(copy);
     });
 
     $('#battle').on('click', '#attack', function(event) {
@@ -84,10 +89,12 @@ $(document).ready(function() {
         console.log('New game started');
         //defaultHeroCSS('.heroes');
         //defaultHeroCSS('.villains');
-        $('#alive').append($('#battle .villains'));
+        $('#alive').append($('#imagestore .villains'));
+        $('#defeated .villains').remove();
         $('#battle .heroes').remove();
+        $('#battle .villains').remove();
         $('#battle h2').empty();
-        $('#alive').append($('#defeated .villains'));
+        $('#stats').empty();
         $('#battle').css('visibility', 'hidden');
         $('#arena').css('visibility', 'hidden');
         $('#intro').css('visibility', 'visible');

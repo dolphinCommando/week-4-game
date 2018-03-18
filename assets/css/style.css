@@ -49,7 +49,7 @@ img {
     height: 276px;
 
 }
-#arena, #battle {
+#arena, #battle, #gamewon, #imagestore {
     visibility: hidden;
 }
 
