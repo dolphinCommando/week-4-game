@@ -85,7 +85,7 @@ $(document).ready(function() {
         //defaultHeroCSS('.heroes');
         //defaultHeroCSS('.villains');
         $('#alive').append($('#battle .villains'));
-        $('#battle').remove('.heroes');
+        $('#battle .heroes').remove();
         $('#battle h2').empty();
         $('#alive').append($('#defeated .villains'));
         $('#battle').css('visibility', 'hidden');
