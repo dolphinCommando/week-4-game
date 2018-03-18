@@ -3,6 +3,8 @@ img {
     opacity: 0.90;
     display: flex;
     cursor: pointer;
+    width: 625px;
+    height: 415px;
 }
 
 .info {
@@ -29,14 +31,24 @@ img {
 .villains:hover {
     background: rgb(194, 1, 1);
 }
-
-#arena:nth-child(2) {
-    
+#arena {
+    display: flex;
+    flex-direction: row;
+}
+#arena h2 {
+    text-align: center;
+}
+.container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    align-content: center;
 }
+#arena img, #defeated img {
+    width: 417px;
+    height: 276px;
 
+}
 #arena, #battle {
     visibility: hidden;
 }
