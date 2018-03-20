@@ -2,26 +2,39 @@
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/style.css">
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="intro">
+            <h1>Clone Wars RPG</h1>
             <h2>Choose your Jedi.</h2>
-            <img src="assets/images/obi-wan.jpg" alt="Obi-Wan Kenobi" class="heroes" id="obiwan" data-skill="10" data-stamina="1500" data-vader="false">
-            <p class="info">Obi-Wan Kenobi gains Hope when he levels up, which grants him damage resistance.</p>
-            <img src="assets/images/anakin.jpg" alt="Anakin Skywalker" class="heroes" id="anakin" data-skill="30" data-stamina="1000" data-vader="true">
-            <p class="info">Anakin Skywalker gains Rage as he levels up, which grants him more damage. </p>
+            <div>
+            <div>
+                <img src="assets/images/obi-wan.jpg" alt="Obi-Wan Kenobi" class="heroes" id="obiwan" data-skill="50" data-stamina="3000" data-vader="false">
+                <p class="info">Obi-Wan Kenobi</p>
+                <p class="info">Obi-Wan begins the game with bonus stamina.</p>
+            </div>
+            <div>
+                <img src="assets/images/anakin.jpg" alt="Anakin Skywalker" class="heroes" id="anakin" data-skill="150" data-stamina="2500" data-vader="true">
+                <p class="info">Anakin Skywalker</p>
+                <p class="info">Anakin Skywalker begins the game with bonus skill.</p>
+            </div>
+            </div>
         </div>
         
         <div id="arena">
             <div id="alive" class="container">
                 <p>Most Wanted</p>
-                <img src="assets/images/battle-droid.jpeg" alt="Battle Droid" class="villains" id="bdroid" data-skill="5" data-stamina="100">
-                <img src="assets/images/super-battle-droid.jpeg" alt="Super Battle Droid" class="villains" id="sdroid" data-skill="5" data-stamina="100">
-                <img src="assets/images/droideka.jpg" alt="Destroyer Droid" class="villains" id="ddroid" data-skill="5" data-stamina="100">
-                <img src="assets/images/hailfire-droid.jpg" alt="Hailfire Droid" class="villains" id="hdroid" data-skill="5" data-stamina="100">
-                <img src="assets/images/magnaguard.jpeg" alt="Magna Guard" class="villains" id="mdroid" data-skill="15" data-stamina="200">
+                <img src="assets/images/battle-droid.jpeg" alt="Battle Droid" class="villains" id="bdroid" data-skill="10" data-stamina="800">
+                <img src="assets/images/super-battle-droid.jpeg" alt="Super Battle Droid" class="villains" id="sdroid" data-skill="100" data-stamina="500">
+                <img src="assets/images/droideka.jpg" alt="Destroyer Droid" class="villains" id="ddroid" data-skill="40" data-stamina="1000">
+                <img src="assets/images/hailfire-droid.jpg" alt="Hailfire Droid" class="villains" id="hdroid" data-skill="20" data-stamina="1600">
+                <img src="assets/images/magnaguard.jpeg" alt="Magna Guard" class="villains" id="mdroid" data-skill="600" data-stamina="800">
+                <img src="assets/images/jango-fett.jpg" alt="Jango Fett" class="villains" id="jango" data-skill="800" data-stamina="1000">
+                <img src="assets/images/general-grievous.jpeg" alt="General Grievous" class="villains" id="grievous" data-skill="1200" data-stamina="1600">
             </div>
             <div id="defeated" class="container"><p>Enemies Defeated</p></div>
         </div>
@@ -37,9 +50,9 @@
         
         <div id="gamewon">
             <p>Congratulations!</p>
-            <p>You have saved the galaxy from the Sith!</p>
-            <button type="button" class="new">New Game</button>
+            <p>You have saved the galaxy from the Droid Menace!</p>
             <div class="score"></div>
+            <button type="button" class="new">New Game</button>
         </div>
 
         <div id="imagestore"></div>

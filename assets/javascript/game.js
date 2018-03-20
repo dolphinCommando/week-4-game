@@ -10,6 +10,13 @@ $(document).ready(function() {
     var enemiesDefeated;
     var numberOfEnemies;
 
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'assets/audio/DuelOfTheFates.m4a');
+    var winAudioElement = document.createElement('audio');
+    winAudioElement.setAttribute('src', 'assets/audio/MainTitle.m4a');
+    audioElement.play();
+    
+
     $('#intro').on('click', '.heroes', function(event) {
         setVariables();
         numberOfEnemies = $('#arena .villains').length;
@@ -23,7 +30,7 @@ $(document).ready(function() {
         $('#arena').css('visibility', 'visible');
         //saveCSS(this, 'good');
         deactivateLink(copy);
-        $('#gamewon').append(copy.clone());
+        $('#gamewon').prepend(copy.clone());
         $('#imagestore').empty();
         
     });
@@ -47,8 +54,6 @@ $(document).ready(function() {
     $('#battle').on('click', '#attack', function(event) {
     if (battleNotOver) {
        sithStamina -= jediSkill;
-       jediStamina -= sithSkill;
-       jediSkill += levelUpIncrement;
        if (sithStamina <= 0) {
             jediSkill += 2 * levelUpIncrement;
             enemiesDefeated++;
@@ -56,15 +61,18 @@ $(document).ready(function() {
             $('#battle h2').append('<p>Enemy defeated!</p>');
             $('#next').css('visibility', 'visible');
             battleNotOver = false;
+       } else {
+           jediStamina -= sithSkill;
+           jediSkill += levelUpIncrement;
        }
-       else if (jediStamina <= 0) {
+       if (jediStamina <= 0) {
            $('#battle h2').append('<p>You have been slain!</p>');
            $('#battle h2').append('<p>Jedi skill learned: ' + jediSkill + '</p>');
            $('#battle h2').append('<p>Enemies defeated: ' + enemiesDefeated + '</p>');
            $('#battle .new').css('visibility', 'visible');
            battleNotOver = false;
        }
-       $('#stats').append('<p>Skill: ' + jediSkill + ' Stamina: ' + jediStamina + ' Enemy Stamina ' + sithStamina + '</p>');
+       $('#stats').append('<p>Skill: ' + jediSkill + ' Stamina: ' + jediStamina + ' |  Enemy Stamina ' + sithStamina + '</p>');
     }
        
     });
@@ -82,6 +90,10 @@ $(document).ready(function() {
         $('#battle').css('visibility', 'hidden');
         $('#next').css('visibility', 'hidden');
         if (numberOfEnemies === 0) {
+            audioElement.pause();
+            winAudioElement.play();
+            $('body').css('background-image', 'url("../week-4-game/assets/images/JediInterceptors.jpg")');
+            $('body').css('background-repeat', 'no-repeat');
             $('#gamewon').css('visibility', 'visible');
             $('#gamewon .new').css('visibility', 'visible');
             $('#gamewon .score').html('<p>Enemies defeated: ' + enemiesDefeated + '</p>' + '<p>Final skill level: ' + jediSkill + '</p>' + '<p>Stamina remaining: ' + jediStamina + '</p>');
@@ -110,12 +122,15 @@ $(document).ready(function() {
         $('#gamewon .heroes').remove();
         $('#gamewon').css('visibility', 'hidden');
         $('.new').css('visibility', 'hidden');
+        $('body').css('background-image', 'none');
+        winAudioElement.pause();
+        audioElement.play();
 
     });
 
     function deactivateLink(selector) {
         $(selector).css('cursor', 'default');
-        $(selector).css('background', 'white');
+        $(selector).css('background', 'black');
         $(selector).css('opacity', '1.0');
     }
  
@@ -125,7 +140,7 @@ $(document).ready(function() {
         isVader = false;
         sithSkill = 0;
         sithStamina = 0;
-        levelUpIncrement = 5;
+        levelUpIncrement = 50;
         battleNotOver = true;
         enemiesDefeated = 0;
     }
