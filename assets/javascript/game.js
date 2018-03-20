@@ -2,7 +2,6 @@
 $(document).ready(function() { 
     var jediSkill;
     var jediStamina;
-    var isVader;
     var sithSkill;
     var sithStamina;
     var levelUpIncrement;
@@ -20,15 +19,13 @@ $(document).ready(function() {
     $('#intro').on('click', '.heroes', function(event) {
         setVariables();
         numberOfEnemies = $('#arena .villains').length;
-        console.log(numberOfEnemies);
+        //console.log(numberOfEnemies);
         jediSkill = +$(this).attr('data-skill');
         jediStamina = +$(this).attr('data-stamina');
-        isVader = $(this).attr('data-vader');
         var copy = $(this).clone();
         $('#battle').append(copy);
         $('#intro').css('visibility', 'hidden');
         $('#arena').css('visibility', 'visible');
-        //saveCSS(this, 'good');
         deactivateLink(copy);
         $('#gamewon').prepend(copy.clone());
         $('#imagestore').empty();
@@ -47,7 +44,6 @@ $(document).ready(function() {
         $('#battle h2').text('Press attack buttom below to simulate an epic Jedi battle.');
         $('#next').css('visibility', 'hidden');
         $('.new').css('visibility', 'hidden');
-        //saveCSS(this, 'evil');
         deactivateLink(copy);
     });
 
@@ -106,9 +102,7 @@ $(document).ready(function() {
     });
 
     $('.new').click(function() {
-        console.log('New game started');
-        //defaultHeroCSS('.heroes');
-        //defaultHeroCSS('.villains');
+        //console.log('New game started');
         $('#alive').append($('#imagestore .villains'));
         $('#defeated .villains').remove();
         $('#battle .heroes').remove();
